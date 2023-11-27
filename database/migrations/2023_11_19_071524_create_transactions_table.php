@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            
+
             $table->foreignId('seller_id')->reference('id')->on('users')->onDelete('restrict');
             $table->foreignId('admin_id')->reference('id')->on('users')->onDelete('restrict')->nullable(true);
             $table->foreignId('buyyer_id')->reference('id')->on('users')->onDelete('restrict')->nullable(true);
-            
+
             $table->string('type_game');
             $table->integer('price');
             $table->string('akun_info');
-           
+            $table->string('img', 300)->nullable(true);
+
+
             $table->dateTime('waktu_pesan')->nullable(true);
             $table->boolean('sended')->default(0);
             $table->string('akun')->nullable(true);
@@ -37,7 +39,7 @@ return new class extends Migration
         });
 
         // once the table is created use a raw query to ALTER it and add the MEDIUMBLOB
-        DB::statement("ALTER TABLE transactions ADD img MEDIUMBLOB null");
+        // DB::statement("ALTER TABLE transactions ADD img MEDIUMBLOB null");
     }
 
     /**
@@ -45,7 +47,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        
+
         Schema::dropIfExists('transactions');
     }
 };

@@ -18,13 +18,14 @@ return new class extends Migration
             $table->string('password');
             $table->string('nowa');
             $table->string('nik');
+            $table->string('img', 300)->nullable(true);
             $table->boolean('admined')->default(0);
-            
+
             $table->timestamps();
         });
 
         // once the table is created use a raw query to ALTER it and add the MEDIUMBLOB
-        DB::statement("ALTER TABLE users ADD img MEDIUMBLOB null");
+
     }
 
     /**
