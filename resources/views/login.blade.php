@@ -8,7 +8,7 @@
     @endif --}}
 
     <div class="d-flex flex-row justify-content-center align-items-center h-100 w-100">
-        <section class="h-50 w-50 shadow p-3 mb-5 bg-body-tertiary rounded p-3">
+        <section class="h-50 w-50 shadow p-3 mb-5 bg-transparent rounded p-3" style="backdrop-filter: blur(10px)" >
             <div class="text-center">
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                     <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">

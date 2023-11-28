@@ -40,9 +40,9 @@
     <script>
         let verif = [];
     </script>
-    <nav class="fixed-top navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="fixed-top navbar navbar-expand-lg bg-dark-subtle">
         <div class="container">
-            <a class="navbar-brand" href="#">Rekening Bersama</a>
+            <a class="navbar-brand" href="#">REKENING BERSAMA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -67,17 +67,17 @@
     </nav>
     <div style="height: 3.5em">1</div>
     {{-- ================================================================================================================= --}}
-    <div class="container bg-body-tertiary">
+    <div class="container bg-primary-subtle">
 
         <div class="row h-100 min-vh-100">
-            <div class="col-md-2 sidebar bg-info h-100 min-vh-100 flex-col pl-3 pt-3">
+            <div class="col-md-2 sidebar bg-info h-500 min-vh-300 flex-col pt-4">
                 <div id="btnProfile" class="profile p-2 bg-light rounded mb-2" style="cursor: default;">Profile</div>
                 <div id="btnPenjualan" class="profile p-2 bg-light rounded mb-2"  style="cursor: default;">Transaksi</div>
 
             </div>
-            <div id="1" class="col-md-10 bg-light">
+            <div id="1" class="col-md-10 bg-warning-subtle">
                 {{-- konten profile --}}
-                <div id="contentProfile" class=" m-3 rounded shadow w-50 p-3">
+                <div id="contentProfile" class=" m-3 rounded shadow w-80 p-3 bg-primary-subtle">
                     <h1>Admin : {{ $user->name }}</h1>
                     <div class="row">
                         <div class="col-4">
@@ -156,12 +156,12 @@
                         <div class="modal fade" id="exampleModalXX{{$key}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header bg-info-subtle">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Katalog Akun ({{$tran->id}})</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        <button type="button" class="btn-close bg-danger" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body bg-warning-subtle">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <img src="{{ asset($tran->img) }}" height="200px" class="card-img-top mb-3 rounded" alt="..." style="object-fit: cover;">
@@ -416,7 +416,7 @@
                         <div class="modal fade" id="exampleModalC{{$key}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header bg-success-subtle">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Katalog Akun ({{$tran->id}})</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -482,7 +482,7 @@
                                             <textarea class="form-control" name="akun" id="exampleFormControlTextarea1" rows="3" disabled placeholder="">{{$tran->admin_msg}}</textarea>
                                         </div>
                                         @if ($tran->send_seller == 1)
-                                        <span class="badge text-bg-warning">Transaksi ini tekah diselesaikan penjual</span>
+                                        <span class="badge text-bg-warning">Transaksi ini telah diselesaikan penjual</span>
                                         @endif
 
                                         <a href="/hapusTran/{{$tran->id}}" class="hapusTran{{$key}} d-none">ok</a>
@@ -524,8 +524,8 @@
 
             {{-- 2 market share --}}
             </div>
-            <div id="2" class="col-md-10 bg-light d-none">
-                <div class="alert alert-primary" role="alert">
+            <div id="2" class="col-md-10 bg-primary-subtle d-none">
+                <div class="mt-2 alert alert-success" role="alert">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right-square" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 3.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z"/>
                     </svg>
@@ -534,7 +534,7 @@
                 <div class="d-flex flex-sm-row p-3 justify-content-sm-evenly">
                     @foreach ($market as $key => $tran)
                     @if ($tran->admin_id != $user->id && $tran->buyyer_id != null)
-                        <div class="card me-3 mb-3" style="width: 320px">
+                        <div class="bg-warning-subtle card me-3 mb-3" style="width: 320px">
                             <img src="{{ asset($tran->img) }}" height="200px" class="card-img-top" style="object-fit: cover;" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $tran->type_game }} ({{$tran->id}})</h5>
@@ -555,12 +555,12 @@
                         <div class="modal fade" id="exampleModalM{{$key}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header bg-success-subtle">
                                         <h1 class="modal-title fs-5" id="exampleModalLabel">Detail Katalog Akun No.ID ({{$tran->id}})</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body bg-dark-subtle">
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <img src="{{ asset($tran->img) }}" height="200px" class="card-img-top mb-3 rounded" alt="..." style="object-fit: cover;" >
